@@ -7,19 +7,15 @@ import java.util.ArrayList;
  */
 public class SimVarStore {
 
-    private final ArrayList<ISimVar> simVars;
-
-    public SimVarStore() {
-        this.simVars = new ArrayList<>();
-    }
+    private static final ArrayList<ISimVar> simVars = new ArrayList<>();
 
     /**
      * Get a SimVar by its name.
      * @param name The name of the SimVar.
      * @return {@code null} if the SimVar does not exist.
      */
-    public ISimVar getSimVar(String name) {
-        for (ISimVar current : this.simVars) {
+    public static ISimVar getSimVar(String name) {
+        for (ISimVar current : simVars) {
             if (current.getName().equals(name)) {
                 return current;
             }
@@ -33,8 +29,8 @@ public class SimVarStore {
      * @param value The value of the SimVar as string.
      * @throws Exception Thrown when value has a type other than {@link String}, {@link Double}, or {@link Boolean}. Primitives are valid.
      */
-    public void setSimVar(String name, String value) throws Exception {
-        this.setSimVar(new SimVar(name, value));
+    public static void setSimVar(String name, String value) {
+        setSimVar(new SimVar(name, value));
     }
 
     /**
@@ -43,8 +39,8 @@ public class SimVarStore {
      * @param value The value of the SimVar as double.
      * @throws Exception Thrown when value has a type other than {@link String}, {@link Double}, or {@link Boolean}. Primitives are valid.
      */
-    public void setSimVar(String name, double value) throws Exception {
-        this.setSimVar(new SimVar(name, value));
+    public static void setSimVar(String name, double value) {
+        setSimVar(new SimVar(name, value));
     }
 
     /**
@@ -53,8 +49,8 @@ public class SimVarStore {
      * @param value The value of the SimVar as boolean.
      * @throws Exception Thrown when value has a type other than {@link String}, {@link Double}, or {@link Boolean}. Primitives are valid.
      */
-    public void setSimVar(String name, boolean value) throws Exception {
-        this.setSimVar(new SimVar(name, value));
+    public static void setSimVar(String name, boolean value) {
+        setSimVar(new SimVar(name, value));
     }
 
     /**
@@ -62,22 +58,20 @@ public class SimVarStore {
      * @param simVar A {@link ISimVar} instance.
      * @throws Exception Thrown when value has a type other than {@link String}, {@link Double}, or {@link Boolean}. Primitive are valid.
      */
-    public void setSimVar(ISimVar simVar) throws Exception {
-        for (ISimVar current : this.simVars) {
+    public static void setSimVar(ISimVar simVar) {
+        for (ISimVar current : simVars) {
             if (current.equals(simVar)) {
-                int indexOfCurrent = this.simVars.indexOf(current);
+                int indexOfCurrent = simVars.indexOf(current);
                 if (simVar.getValue() instanceof String) {
-                    this.simVars.get(indexOfCurrent).setValue((String) simVar.getValue());
+                    simVars.get(indexOfCurrent).setValue((String) simVar.getValue());
                 } else if (simVar.getValue() instanceof Double) {
-                    this.simVars.get(indexOfCurrent).setValue((double) simVar.getValue());
+                    simVars.get(indexOfCurrent).setValue((double) simVar.getValue());
                 } else if (simVar.getValue() instanceof Boolean) {
-                    this.simVars.get(indexOfCurrent).setValue((boolean) simVar.getValue());
-                } else {
-                    throw new Exception("'SimVar.value' can only be of type 'String', 'double', 'boolean'");
+                    simVars.get(indexOfCurrent).setValue((boolean) simVar.getValue());
                 }
                 return;
             }
         }
-        this.simVars.add(simVar);
+        simVars.add(simVar);
     }
 }
