@@ -9,6 +9,8 @@ public class SimVarStore {
 
     private static final ArrayList<ISimVar> simVars = new ArrayList<>();
 
+    private SimVarStore() {}
+
     /**
      * Get a SimVar by its name.
      * @param name The name of the SimVar.
