@@ -29,7 +29,6 @@ public class SimVarStore {
      * Set a SimVar. This method uses {@link #setSimVar(ISimVar)} under the hood.
      * @param name The name of the SimVar.
      * @param value The value of the SimVar as string.
-     * @throws Exception Thrown when value has a type other than {@link String}, {@link Double}, or {@link Boolean}. Primitives are valid.
      */
     public static void setSimVar(String name, String value) {
         setSimVar(new SimVar(name, value));
@@ -39,7 +38,6 @@ public class SimVarStore {
      * Set a SimVar. This method uses {@link #setSimVar(ISimVar)} under the hood.
      * @param name The name of the SimVar.
      * @param value The value of the SimVar as double.
-     * @throws Exception Thrown when value has a type other than {@link String}, {@link Double}, or {@link Boolean}. Primitives are valid.
      */
     public static void setSimVar(String name, double value) {
         setSimVar(new SimVar(name, value));
@@ -49,7 +47,6 @@ public class SimVarStore {
      * Set a SimVar. This method uses {@link #setSimVar(ISimVar)} under the hood.
      * @param name The name of the SimVar.
      * @param value The value of the SimVar as boolean.
-     * @throws Exception Thrown when value has a type other than {@link String}, {@link Double}, or {@link Boolean}. Primitives are valid.
      */
     public static void setSimVar(String name, boolean value) {
         setSimVar(new SimVar(name, value));
@@ -58,7 +55,6 @@ public class SimVarStore {
     /**
      * Set a SimVar.
      * @param simVar A {@link ISimVar} instance.
-     * @throws Exception Thrown when value has a type other than {@link String}, {@link Double}, or {@link Boolean}. Primitive are valid.
      */
     public static void setSimVar(ISimVar simVar) {
         for (ISimVar current : simVars) {
