@@ -3,12 +3,11 @@ package nz.examlewastaken.enginesim.environment;
 import nz.examlewastaken.enginesim.base.Temperable;
 import nz.examlewastaken.enginesim.base.Updatable;
 import nz.examlewastaken.enginesim.components.Air;
-import nz.examlewastaken.enginesim.visitors.environment.Host;
-import nz.examlewastaken.enginesim.visitors.environment.Visitor;
+import nz.examlewastaken.enginesim.simvars.SimVarStore;
 
-public class Environment implements Host, Updatable, Temperable {
+public class Environment implements Updatable, Temperable {
 
-    private Air air;
+    private final Air air;
 
     public Environment(double airTemp) {
         this.air = new Air(airTemp);
@@ -23,12 +22,7 @@ public class Environment implements Host, Updatable, Temperable {
     }
 
     @Override
-    public void update() {
-
-    }
-
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
+    public void update(int deltaTime) {
+        this.setTemperature((Double) SimVarStore.getSimVar("ENVIRONMENT_TEMP").getValue());
     }
 }
