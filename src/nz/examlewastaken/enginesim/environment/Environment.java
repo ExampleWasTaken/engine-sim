@@ -9,6 +9,8 @@ public class Environment implements Updatable, Temperable {
 
     private final Air air;
 
+    private long lastUpdate;
+
     public Environment(double airTemp) {
         this.air = new Air(airTemp);
     }
@@ -23,6 +25,13 @@ public class Environment implements Updatable, Temperable {
 
     @Override
     public void update(int deltaTime) {
-        this.setTemperature((Double) SimVarStore.getSimVar("ENVIRONMENT_TEMP").getValue());
+        if (!shouldUpdate(lastUpdate, 30)) {
+            return;
+        }
+
+        //noinspection ConstantConditions
+        this.setTemperature(SimVarStore.getSimVar("ENVIRONMENT_TEMP").getValue().asDouble());
+
+        lastUpdate = System.nanoTime();
     }
 }

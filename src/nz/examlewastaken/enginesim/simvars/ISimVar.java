@@ -18,7 +18,7 @@ public interface ISimVar {
      * Get the value of the {@link SimVar}.
      * @return The value.
      */
-    Object getValue();
+    ISimVarValue getValue();
 
     /**
      * Set the value as string.
@@ -37,4 +37,10 @@ public interface ISimVar {
      * @param value The new value.
      */
     void setValue(boolean value);
+
+    /**
+     * Set the value as {@link ISimVarValue}.
+     * @param value The new value.
+     */
+    void setValue(ISimVarValue value);
 }

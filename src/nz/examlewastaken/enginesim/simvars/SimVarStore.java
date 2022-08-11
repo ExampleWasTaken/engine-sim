@@ -64,12 +64,11 @@ public class SimVarStore {
         for (ISimVar current : simVars) {
             if (current.equals(simVar)) {
                 int indexOfCurrent = simVars.indexOf(current);
-                if (simVar.getValue() instanceof String) {
-                    simVars.get(indexOfCurrent).setValue((String) simVar.getValue());
-                } else if (simVar.getValue() instanceof Double) {
-                    simVars.get(indexOfCurrent).setValue((double) simVar.getValue());
-                } else if (simVar.getValue() instanceof Boolean) {
-                    simVars.get(indexOfCurrent).setValue((boolean) simVar.getValue());
+
+                switch (simVar.getValue().getType()) {
+                    case STRING -> simVars.get(indexOfCurrent).setValue(simVar.getValue().asString());
+                    case DOUBLE -> simVars.get(indexOfCurrent).setValue(simVar.getValue().asDouble());
+                    case BOOLEAN -> simVars.get(indexOfCurrent).setValue(simVar.getValue().asBool());
                 }
                 return;
             }

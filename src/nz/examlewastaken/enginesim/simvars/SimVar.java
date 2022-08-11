@@ -12,31 +12,28 @@ public class SimVar implements ISimVar {
     /**
      * The value of the SimVar.
      */
-    private Object value;
+    private ISimVarValue value;
 
-    /**
-     * @param name The name of the SimVar. This cannot be changed later.
-     * @param value The initial value of the SimVar as string.
-     */
     public SimVar(String name, String value) {
         this.name = name;
-        this.value = value;
+        this.value = new SimVarValue(value);
     }
 
-    /**
-     * @param name The name of the SimVar. This cannot be changed later.
-     * @param value The initial value of the SimVar as double.
-     */
     public SimVar(String name, double value) {
         this.name = name;
-        this.value = value;
+        this.value = new SimVarValue(value);
+    }
+
+    public SimVar(String name, boolean value) {
+        this.name = name;
+        this.value = new SimVarValue(value);
     }
 
     /**
      * @param name The name of the SimVar. This cannot be changed later.
-     * @param value The initial value of the SimVar as boolean.
+     * @param value The initial value of the SimVar as {@link ISimVarValue}.
      */
-    public SimVar(String name, boolean value) {
+    public SimVar(String name, ISimVarValue value) {
         this.name = name;
         this.value = value;
     }
@@ -48,22 +45,27 @@ public class SimVar implements ISimVar {
     }
 
     @Override
-    public Object getValue() {
+    public ISimVarValue getValue() {
         return this.value;
     }
 
     @Override
     public void setValue(String value) {
-        this.value = value;
+        setValue(new SimVarValue(value));
     }
 
     @Override
     public void setValue(double value) {
-        this.value = value;
+        setValue(new SimVarValue(value));
     }
 
     @Override
     public void setValue(boolean value) {
+        setValue(new SimVarValue(value));
+    }
+
+    @Override
+    public void setValue(ISimVarValue value) {
         this.value = value;
     }
 }
