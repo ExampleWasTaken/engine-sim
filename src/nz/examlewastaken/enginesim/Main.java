@@ -1,16 +1,24 @@
 package nz.examlewastaken.enginesim;
 
-import nz.examlewastaken.enginesim.base.Updatable;
 import nz.examlewastaken.enginesim.components.Air;
 import nz.examlewastaken.enginesim.environment.Environment;
-import nz.examlewastaken.enginesim.visitors.environment.TemperatureVisitor;
+
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
         boolean simActive = true;
 
-        while (simActive) {
+        Environment env = new Environment(20);
 
+        long lastTime = System.nanoTime();
+        while (simActive) {
+            long currentTime = System.nanoTime();
+            int deltaTime = (int) (currentTime - lastTime) / 1000000;
+            lastTime = currentTime;
+
+
+            env.update(deltaTime);
         }
     }
 }
