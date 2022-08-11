@@ -1,9 +1,6 @@
 package nz.examlewastaken.enginesim;
 
-import nz.examlewastaken.enginesim.components.Air;
 import nz.examlewastaken.enginesim.environment.Environment;
-
-import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
