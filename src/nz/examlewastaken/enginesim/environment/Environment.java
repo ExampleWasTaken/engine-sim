@@ -2,7 +2,7 @@ package nz.examlewastaken.enginesim.environment;
 
 import nz.examlewastaken.enginesim.base.Temperable;
 import nz.examlewastaken.enginesim.base.Updatable;
-import nz.examlewastaken.enginesim.components.Air;
+import nz.examlewastaken.enginesim.components.environment.Air;
 import nz.examlewastaken.enginesim.simvars.SimVarStore;
 
 public class Environment implements Updatable, Temperable {

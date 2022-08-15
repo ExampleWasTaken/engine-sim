@@ -1,4 +1,4 @@
-package nz.examlewastaken.enginesim.components;
+package nz.examlewastaken.enginesim.components.environment;
 
 import nz.examlewastaken.enginesim.base.Temperable;
 
