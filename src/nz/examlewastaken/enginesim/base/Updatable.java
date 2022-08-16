@@ -4,6 +4,10 @@ package nz.examlewastaken.enginesim.base;
  * Represents an object that updates once every tick.
  */
 public interface Updatable {
+    /**
+     * Update the updatable.
+     * @param deltaTime The time that has passed since the last update.
+     */
     void update(int deltaTime);
 
     /**

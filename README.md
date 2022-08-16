@@ -47,20 +47,15 @@ The same applies for what components are aware of each other.
 The order is outlined below:
 
 | Order | Component         | Aware |
-|-------|-------------------|-------|
+|-------|:------------------|-------|
 | 1     | ECU               | 2, 5  |
 | 2     | Connector         | 1, 3  |
-| 3     | Wire              | -     |
+| 3     | Wire              | 2, 4  |
 | 4     | Connector         | 3, 5  |
 | 5     | Sensor, ECU, etc. | -     |
 
-Looking at this structure we can see that a wire is always unaware of the components it connects, but always connects two connectors with each other
-which are not aware of each other.
+Looking at this structure we can see that a wire is aware of the connectors at its end which are not aware of each other, etc.
 
 By organizing the communication between components like that we comply with [requirement 2](#2-follows-the-real-world).
-
-## Code
-The project strictly follows the OOP paradigm.
-
 
 
