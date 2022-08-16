@@ -1,6 +1,6 @@
 # _EngineSim_
 This is a personal project of mine. The goal is to simulate a car engine. Despite the name being _EngineSim_, the focus is more on the electronics (sensors, ECUs and their communication) than 
-the physics of the actual engine. 
+the physics of the actual engine. It should also be noted that the goal is not to simulate the actual system communication (CAN bus, etc.) but the functionality.
 
 # Design
 ## Definitions
