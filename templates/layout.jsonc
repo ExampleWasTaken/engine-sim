@@ -1,0 +1,10 @@
+// I recommend generating this file automatically.
+{
+  "content": [
+    {
+      "path": "path/to/file",
+      "size": 123, // size of the file in bytes
+      "date": 1675806594000 // UTC UNIX timestamp of file creation
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+// This file needs to be at the root of your project.
+{
+  "name": "My Title",
+  "creator": "My Name",
+  "packageVersion": "1.0.0",
+  "dependencies": [
+    {
+      "name": "Dependency Name",
+      "packageVersion": "1.0.0"
+    }
+  ],
+  "contentType": "ENGINE",
+  "minimumSimulatorVersion": "1.0.0-alpha.1",
+  "manufacturer": "Volkswagen"
+}

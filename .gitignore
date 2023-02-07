@@ -1,2 +1,3 @@
-.idea
-engine-sim.iml
+/node_modules
+/out
+/.temp
